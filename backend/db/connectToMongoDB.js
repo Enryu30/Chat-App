@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 
-const MONGO_DB_URI='mongodb+srv://swarat:Kr24lvcMY72xampr@cluster0.tclfdjf.mongodb.net/gofoodmern?retryWrites=true&w=majority&appName=Cluster0';
+const MONGO_DB_URI='mongodb+srv://swarat:Kr24lvcMY72xampr@cluster0.tclfdjf.mongodb.net/chat-app?retryWrites=true&w=majority&appName=Cluster0';
 
 const connectToMongoDB = async()=>{
 

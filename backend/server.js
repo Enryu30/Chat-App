@@ -1,15 +1,16 @@
-const authRoutes = require('./routes/auth.route');
-
-const express = require('express');
-const app = express();
+const express = require('express'); //package imports
 const dotenv = require('dotenv');
-dotenv.config();
 
+
+const authRoutes = require('./routes/auth.route');//file imports
 const connectToMongoDB = require('./db/connectToMongoDB');
 
+const app = express(); // variables
+const PORT = process.env.PORT || 5000;
+
 dotenv.config();
 
-const PORT = process.env.PORT || 5000;
+app.use(express.json());//to parse the request
 
 app.get("/",(req,res)=>{
   res.send("Hello World");
