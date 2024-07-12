@@ -1,5 +1,6 @@
 const User = require("../models/user.model");
 const bcryptjs= require("bcryptjs");
+const generateTokenandCookie = require("../utils/generateToken");
 const signup = async(req, res) => {
 
       try {
@@ -32,6 +33,7 @@ const signup = async(req, res) => {
           profilePic: gender==="male"?boyProfilePic:girlProfilePic
         });
 
+        generateTokenandCookie(newUser._id,res);
         await newUser.save();
         console.log("Successfully saved user to the database.");
 
