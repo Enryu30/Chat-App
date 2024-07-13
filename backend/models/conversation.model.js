@@ -23,6 +23,6 @@ const conversationSchema = new mongoose.Schema({
 
 //here when we have to create participants we are taking from the user so type will be .id and it will reference from the user.
 
-const Conversation = mongoose.model("Conversation",conversationSchema);
+const Conversation = mongoose.model("Conversation", conversationSchema);
 
-exports.module = Conversation;
+module.exports = Conversation;
