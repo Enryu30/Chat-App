@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 
 const authRoutes = require('./routes/auth.route');//file imports
 const messageRoutes = require('./routes/message.route');
+const userRoutes = require('./routes/user.routes');
 
 const connectToMongoDB = require('./db/connectToMongoDB');
 
@@ -22,9 +23,8 @@ app.get("/",(req,res)=>{
 
 
 app.use("/api/auth",authRoutes);
-
- app.use("/api/messages",messageRoutes);
- 
+app.use("/api/messages",messageRoutes);
+app.use("/api/users", userRoutes); 
 
 
 app.listen(PORT,()=>{

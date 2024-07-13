@@ -44,4 +44,28 @@ const sendMessage = async (req, res) => {
   }
 }
 
-module.exports = { sendMessage };
+
+const getMessages = async(req,res)=>{
+  try {
+
+    const {id:userToChatId} = req.params;
+    const senderId = req.user._id; // protect route provides this.
+
+    const conversation = await Conversation.findOne({
+      participants:{$all:[senderId, userToChatId]},
+    }).populate("messages"); // .populate wont give us the id but the actual messages.
+ 
+    if (!conversation) {
+      return res.status(200).json([]);
+    }
+    
+
+    res.status(200).json(conversation.messages);
+    
+  } catch (error) {
+    console.log("Error in getMessage Controller", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+}
+
+module.exports = { sendMessage, getMessages };
