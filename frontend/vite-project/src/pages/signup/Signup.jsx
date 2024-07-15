@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import GenderCheckbox from "./GenderCheckBox";
 import { useState } from "react";
 import useSignup from "../../hooks/useSignup";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
 
@@ -16,11 +17,15 @@ const SignUp = () => {
 	const {loading, signup} = useSignup();
 
 	const handleSubmit=async(e)=>{
+		
 			e.preventDefault();
 
 			console.log(inputs, "inside block") ;
 		
-		 signup(inputs);
+			
+				signup(inputs)
+				 
+		 
 	}
 
 	const handleCheckboxChange=(gender)=>{
@@ -90,7 +95,8 @@ const SignUp = () => {
 					<div>
 						<button className='btn btn-block btn-sm mt-2 border border-slate-700'
 						onClick={handleSubmit}
-						>Sign Up</button>
+						disabled={loading}
+						>{loading?(<span className="loading loading-spinner"></span>):("Sign Up") }</button>
 					</div>
 				</form>
 			</div>
