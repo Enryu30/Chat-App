@@ -2,6 +2,8 @@ const User = require("../models/user.model");
 
 const getUserForSidebar = async(req,res)=>{
   try {
+
+      console.log("inside getusersfor sidebar");
       const loggedInUserId = req.user._id;
 
       const filteredUsers = await User.find({_id: {$ne: loggedInUserId}}).select("-password");// not the logged in user

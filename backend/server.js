@@ -1,6 +1,8 @@
 const express = require('express'); //package imports
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
+
 
 const authRoutes = require('./routes/auth.route');//file imports
 const messageRoutes = require('./routes/message.route');
