@@ -4,6 +4,6 @@ const { getUserForSidebar } = require('../controllers/user.controller');
 
 const router = express.Router();
 
-router.get("/",protectRoute, getUserForSidebar );
+router.post("/",protectRoute, getUserForSidebar );
 
 module.exports= router;
